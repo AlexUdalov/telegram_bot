@@ -8,9 +8,9 @@ def startCommand(bot, update):
 def textMessage(bot, update):
 	request = apiai.ApiAI('70319285a95d4dfa8744df891c8049f3').text_request()
 	request.lang = 'ru'
-	request.session_id = 'Sergeyev_Bot'
-	request.querry = update.message.text
-	responseJson = json.loads(request.getresponse().read().decode('utf-8')
+	request.session_id = 'Sergeyev_bot'
+	request.query = update.message.text
+	responseJson = json.loads(request.getresponse().read().decode('utf-8'))
 	response = responseJson['result']['fulfillment']['speech']
 	if response:
 		bot.send_message(chat_id=update.message.chat_id, text=response)
